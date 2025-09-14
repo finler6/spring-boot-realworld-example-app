@@ -103,6 +103,7 @@ type PageInfo {
 type Profile {
     username: String!
     bio: String
+    location: String
     following: Boolean!
     image: String
     articles(first: Int, after: String, last: Int, before: String): ArticlesConnection
@@ -165,6 +166,7 @@ input UpdateUserInput {
     password: String
     image: String
     bio: String
+    location: String
 }
 
 type UserPayload {

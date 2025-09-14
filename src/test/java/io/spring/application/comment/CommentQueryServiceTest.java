@@ -41,7 +41,7 @@ public class CommentQueryServiceTest extends DbTestBase {
 
   @BeforeEach
   public void setUp() {
-    user = new User("aisensiy@test.com", "aisensiy", "123", "", "");
+    user = new User("aisensiy@test.com", "aisensiy", "123", "", "", "");
     userRepository.save(user);
   }
 
@@ -61,7 +61,7 @@ public class CommentQueryServiceTest extends DbTestBase {
     Article article = new Article("title", "desc", "body", Arrays.asList("java"), user.getId());
     articleRepository.save(article);
 
-    User user2 = new User("user2@email.com", "user2", "123", "", "");
+    User user2 = new User("user2@email.com", "user2", "123", "", "", "");
     userRepository.save(user2);
     userRepository.saveRelation(new FollowRelation(user.getId(), user2.getId()));
 

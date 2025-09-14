@@ -19,15 +19,18 @@ import org.springframework.validation.annotation.Validated;
 public class UserService {
   private UserRepository userRepository;
   private String defaultImage;
+  private String defaultLocation;
   private PasswordEncoder passwordEncoder;
 
   @Autowired
   public UserService(
       UserRepository userRepository,
       @Value("${image.default}") String defaultImage,
+      @Value("${location.default}") String defaultLocation,
       PasswordEncoder passwordEncoder) {
     this.userRepository = userRepository;
     this.defaultImage = defaultImage;
+    this.defaultLocation = defaultLocation;
     this.passwordEncoder = passwordEncoder;
   }
 
@@ -38,6 +41,7 @@ public class UserService {
             registerParam.getUsername(),
             passwordEncoder.encode(registerParam.getPassword()),
             "",
+            defaultLocation,
             defaultImage);
     userRepository.save(user);
     return user;
@@ -51,6 +55,7 @@ public class UserService {
         updateUserParam.getUsername(),
         updateUserParam.getPassword(),
         updateUserParam.getBio(),
+        updateUserParam.getLocation(),
         updateUserParam.getImage());
     userRepository.save(user);
   }

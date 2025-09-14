@@ -12,6 +12,7 @@ public class ProfileData {
   @JsonIgnore private String id;
   private String username;
   private String bio;
+  private String location;
   private String image;
   private boolean following;
 }

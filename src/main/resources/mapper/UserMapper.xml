@@ -8,6 +8,7 @@
           #{user.email},
           #{user.password},
           #{user.bio},
+          #{user.location}
           #{user.image}
         )
     </insert>
@@ -21,6 +22,7 @@
               <if test="user.email != ''">email = #{user.email},</if>
               <if test="user.password != ''">password = #{user.password},</if>
               <if test="user.bio != ''">bio = #{user.bio},</if>
+              <if test="user.location != ''">location = #{user.location},</if>
               <if test="user.image != ''">image = #{user.image}</if>
           </set>
         where id = #{user.id}
@@ -56,6 +58,7 @@
         <result column="email" property="email"/>
         <result column="password" property="password"/>
         <result column="bio" property="bio"/>
+        <result column="location" property="location"/>
         <result column="image" property="image"/>
     </resultMap>
 </mapper>

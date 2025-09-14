@@ -19,7 +19,7 @@ public class MyBatisUserRepositoryTest extends DbTestBase {
 
   @BeforeEach
   public void setUp() {
-    user = new User("aisensiy@163.com", "aisensiy", "123", "", "default");
+    user = new User("aisensiy@163.com", "aisensiy", "123", "", "", "default");
   }
 
   @Test
@@ -34,14 +34,14 @@ public class MyBatisUserRepositoryTest extends DbTestBase {
   @Test
   public void should_update_user_success() {
     String newEmail = "newemail@email.com";
-    user.update(newEmail, "", "", "", "");
+    user.update(newEmail, "", "", "", "", "");
     userRepository.save(user);
     Optional<User> optional = userRepository.findByUsername(user.getUsername());
     Assertions.assertTrue(optional.isPresent());
     Assertions.assertEquals(optional.get().getEmail(), newEmail);
 
     String newUsername = "newUsername";
-    user.update("", newUsername, "", "", "");
+    user.update("", newUsername, "", "", "", "");
     userRepository.save(user);
     optional = userRepository.findByEmail(user.getEmail());
     Assertions.assertTrue(optional.isPresent());
@@ -51,7 +51,7 @@ public class MyBatisUserRepositoryTest extends DbTestBase {
 
   @Test
   public void should_create_new_user_follow_success() {
-    User other = new User("other@example.com", "other", "123", "", "");
+    User other = new User("other@example.com", "other", "123", "", "", "");
     userRepository.save(other);
 
     FollowRelation followRelation = new FollowRelation(user.getId(), other.getId());
@@ -61,7 +61,7 @@ public class MyBatisUserRepositoryTest extends DbTestBase {
 
   @Test
   public void should_unfollow_user_success() {
-    User other = new User("other@example.com", "other", "123", "", "");
+    User other = new User("other@example.com", "other", "123", "", "", "");
     userRepository.save(other);
 
     FollowRelation followRelation = new FollowRelation(user.getId(), other.getId());

@@ -25,6 +25,7 @@ public class ProfileQueryService {
               userData.getId(),
               userData.getUsername(),
               userData.getBio(),
+              userData.getLocation(),
               userData.getImage(),
               currentUser != null
                   && userRelationshipQueryService.isUserFollowing(

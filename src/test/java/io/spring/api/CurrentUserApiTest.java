@@ -127,7 +127,7 @@ public class CurrentUserApiTest extends TestWithCurrentUser {
     Map<String, Object> param = prepareUpdateParam(newEmail, newBio, newUsername);
 
     when(userRepository.findByEmail(eq(newEmail)))
-        .thenReturn(Optional.of(new User(newEmail, "username", "123", "", "")));
+        .thenReturn(Optional.of(new User(newEmail, "username", "123", "", "", "")));
     when(userRepository.findByUsername(eq(newUsername))).thenReturn(Optional.empty());
 
     when(userQueryService.findById(eq(user.getId()))).thenReturn(Optional.of(userData));

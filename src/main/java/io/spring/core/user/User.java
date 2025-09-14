@@ -15,18 +15,22 @@ public class User {
   private String username;
   private String password;
   private String bio;
+  private String location;
   private String image;
 
-  public User(String email, String username, String password, String bio, String image) {
+  public User(
+      String email, String username, String password, String bio, String location, String image) {
     this.id = UUID.randomUUID().toString();
     this.email = email;
     this.username = username;
     this.password = password;
     this.bio = bio;
+    this.location = location;
     this.image = image;
   }
 
-  public void update(String email, String username, String password, String bio, String image) {
+  public void update(
+      String email, String username, String password, String bio, String location, String image) {
     if (!Util.isEmpty(email)) {
       this.email = email;
     }
@@ -41,6 +45,10 @@ public class User {
 
     if (!Util.isEmpty(bio)) {
       this.bio = bio;
+    }
+
+    if (!Util.isEmpty(location)) {
+      this.location = location;
     }
 
     if (!Util.isEmpty(image)) {

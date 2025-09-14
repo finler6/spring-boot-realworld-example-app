@@ -59,7 +59,12 @@ public class CommentsApiTest extends TestWithCurrentUser {
             comment.getCreatedAt(),
             comment.getCreatedAt(),
             new ProfileData(
-                user.getId(), user.getUsername(), user.getBio(), user.getImage(), false));
+                user.getId(),
+                user.getUsername(),
+                user.getBio(),
+                user.getLocation(),
+                user.getImage(),
+                false));
   }
 
   @Test
@@ -144,7 +149,7 @@ public class CommentsApiTest extends TestWithCurrentUser {
   @Test
   public void should_get_403_if_not_author_of_article_or_author_of_comment_when_delete_comment()
       throws Exception {
-    User anotherUser = new User("other@example.com", "other", "123", "", "");
+    User anotherUser = new User("other@example.com", "other", "123", "", "", "");
     when(userRepository.findByUsername(eq(anotherUser.getUsername())))
         .thenReturn(Optional.of(anotherUser));
     when(jwtService.getSubFromToken(any())).thenReturn(Optional.of(anotherUser.getId()));

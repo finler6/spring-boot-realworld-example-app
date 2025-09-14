@@ -22,7 +22,13 @@ public class TestHelper {
         now,
         now,
         new ArrayList<>(),
-        new ProfileData(user.getId(), user.getUsername(), user.getBio(), user.getImage(), false));
+        new ProfileData(
+            user.getId(),
+            user.getUsername(),
+            user.getBio(),
+            user.getLocation(),
+            user.getImage(),
+            false));
   }
 
   public static ArticleData getArticleDataFromArticleAndUser(Article article, User user) {
@@ -37,6 +43,12 @@ public class TestHelper {
         article.getCreatedAt(),
         article.getUpdatedAt(),
         Arrays.asList("joda"),
-        new ProfileData(user.getId(), user.getUsername(), user.getBio(), user.getImage(), false));
+        new ProfileData(
+            user.getId(),
+            user.getUsername(),
+            user.getBio(),
+            user.getLocation(),
+            user.getImage(),
+            false));
   }
 }

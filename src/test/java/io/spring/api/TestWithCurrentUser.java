@@ -22,6 +22,7 @@ abstract class TestWithCurrentUser {
   protected String token;
   protected String email;
   protected String username;
+  protected String defaultLocation;
   protected String defaultAvatar;
 
   @MockBean protected JwtService jwtService;
@@ -29,13 +30,14 @@ abstract class TestWithCurrentUser {
   protected void userFixture() {
     email = "john@jacob.com";
     username = "johnjacob";
+    defaultLocation = "Earth";
     defaultAvatar = "https://static.productionready.io/images/smiley-cyrus.jpg";
 
-    user = new User(email, username, "123", "", defaultAvatar);
+    user = new User(email, username, "123", "", defaultLocation, defaultAvatar);
     when(userRepository.findByUsername(eq(username))).thenReturn(Optional.of(user));
     when(userRepository.findById(eq(user.getId()))).thenReturn(Optional.of(user));
 
-    userData = new UserData(user.getId(), email, username, "", defaultAvatar);
+    userData = new UserData(user.getId(), email, username, "", defaultLocation, defaultAvatar);
     when(userReadService.findById(eq(user.getId()))).thenReturn(userData);
 
     token = "token";

@@ -48,7 +48,7 @@ public class ArticleQueryServiceTest extends DbTestBase {
 
   @BeforeEach
   public void setUp() {
-    user = new User("aisensiy@gmail.com", "aisensiy", "123", "", "");
+    user = new User("aisensiy@gmail.com", "aisensiy", "123", "", "", "");
     userRepository.save(user);
     article =
         new Article(
@@ -71,7 +71,7 @@ public class ArticleQueryServiceTest extends DbTestBase {
 
   @Test
   public void should_get_article_with_right_favorite_and_favorite_count() {
-    User anotherUser = new User("other@test.com", "other", "123", "", "");
+    User anotherUser = new User("other@test.com", "other", "123", "", "", "");
     userRepository.save(anotherUser);
     articleFavoriteRepository.save(new ArticleFavorite(article.getId(), anotherUser.getId()));
 
@@ -144,7 +144,7 @@ public class ArticleQueryServiceTest extends DbTestBase {
 
   @Test
   public void should_query_article_by_author() {
-    User anotherUser = new User("other@email.com", "other", "123", "", "");
+    User anotherUser = new User("other@email.com", "other", "123", "", "", "");
     userRepository.save(anotherUser);
 
     Article anotherArticle =
@@ -159,7 +159,7 @@ public class ArticleQueryServiceTest extends DbTestBase {
 
   @Test
   public void should_query_article_by_favorite() {
-    User anotherUser = new User("other@email.com", "other", "123", "", "");
+    User anotherUser = new User("other@email.com", "other", "123", "", "", "");
     userRepository.save(anotherUser);
 
     Article anotherArticle =
@@ -198,7 +198,7 @@ public class ArticleQueryServiceTest extends DbTestBase {
 
   @Test
   public void should_show_following_if_user_followed_author() {
-    User anotherUser = new User("other@email.com", "other", "123", "", "");
+    User anotherUser = new User("other@email.com", "other", "123", "", "", "");
     userRepository.save(anotherUser);
 
     FollowRelation followRelation = new FollowRelation(anotherUser.getId(), user.getId());
@@ -213,7 +213,7 @@ public class ArticleQueryServiceTest extends DbTestBase {
 
   @Test
   public void should_get_user_feed() {
-    User anotherUser = new User("other@email.com", "other", "123", "", "");
+    User anotherUser = new User("other@email.com", "other", "123", "", "", "");
     userRepository.save(anotherUser);
 
     FollowRelation followRelation = new FollowRelation(anotherUser.getId(), user.getId());

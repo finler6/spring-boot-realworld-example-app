@@ -37,12 +37,13 @@ public class ProfileApiTest extends TestWithCurrentUser {
   public void setUp() throws Exception {
     super.setUp();
     RestAssuredMockMvc.mockMvc(mvc);
-    anotherUser = new User("username@test.com", "username", "123", "", "");
+    anotherUser = new User("username@test.com", "username", "123", "", "", "");
     profileData =
         new ProfileData(
             anotherUser.getId(),
             anotherUser.getUsername(),
             anotherUser.getBio(),
+            anotherUser.getLocation(),
             anotherUser.getImage(),
             false);
     when(userRepository.findByUsername(eq(anotherUser.getUsername())))

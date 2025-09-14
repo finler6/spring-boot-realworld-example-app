@@ -58,6 +58,7 @@ public class RelationMutation {
     return Profile.newBuilder()
         .username(profileData.getUsername())
         .bio(profileData.getBio())
+        .location(profileData.getLocation())
         .image(profileData.getImage())
         .following(profileData.isFollowing())
         .build();

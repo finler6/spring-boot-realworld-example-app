@@ -47,7 +47,7 @@ public class ArticleFavoriteApiTest extends TestWithCurrentUser {
   public void setUp() throws Exception {
     super.setUp();
     RestAssuredMockMvc.mockMvc(mvc);
-    User anotherUser = new User("other@test.com", "other", "123", "", "");
+    User anotherUser = new User("other@test.com", "other", "123", "", "", "");
     article = new Article("title", "desc", "body", Arrays.asList("java"), anotherUser.getId());
     when(articleRepository.findBySlug(eq(article.getSlug()))).thenReturn(Optional.of(article));
     ArticleData articleData =
@@ -66,6 +66,7 @@ public class ArticleFavoriteApiTest extends TestWithCurrentUser {
                 anotherUser.getId(),
                 anotherUser.getUsername(),
                 anotherUser.getBio(),
+                anotherUser.getLocation(),
                 anotherUser.getImage(),
                 false));
     when(articleQueryService.findBySlug(eq(articleData.getSlug()), eq(user)))

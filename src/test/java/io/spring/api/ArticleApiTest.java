@@ -125,7 +125,7 @@ public class ArticleApiTest extends TestWithCurrentUser {
     String description = "new description";
     Map<String, Object> updateParam = prepareUpdateParam(title, body, description);
 
-    User anotherUser = new User("test@test.com", "test", "123123", "", "");
+    User anotherUser = new User("test@test.com", "test", "123123", "", "", "");
 
     Article article =
         new Article(
@@ -148,6 +148,7 @@ public class ArticleApiTest extends TestWithCurrentUser {
                 anotherUser.getId(),
                 anotherUser.getUsername(),
                 anotherUser.getBio(),
+                anotherUser.getLocation(),
                 anotherUser.getImage(),
                 false));
 
@@ -191,7 +192,7 @@ public class ArticleApiTest extends TestWithCurrentUser {
     String body = "new body";
     String description = "new description";
 
-    User anotherUser = new User("test@test.com", "test", "123123", "", "");
+    User anotherUser = new User("test@test.com", "test", "123123", "", "", "");
 
     Article article =
         new Article(

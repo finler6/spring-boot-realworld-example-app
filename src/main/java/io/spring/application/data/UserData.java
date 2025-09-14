@@ -12,5 +12,6 @@ public class UserData {
   private String email;
   private String username;
   private String bio;
+  private String location;
   private String image;
 }
